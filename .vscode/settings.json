@@ -1,0 +1,7 @@
+{
+  "auto-close-tag.insertSpaceBeforeSelfClosingTag": true,
+  "emmet.preferences": {},
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+}
