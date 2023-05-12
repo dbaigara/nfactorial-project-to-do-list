@@ -79,28 +79,13 @@ const [isAddModalVisible, setIsAddModalVisible] = useState(false);
         <HEADER />
       </div>
       <div className="mb-5 mt-5 pt-5">
-        {/* <MainContent /> */}
+        <MainContent changeStatus={changeStatus}/>
       </div>
 {/* ------------------------------------- */}
 
 {/* ------------------------------------- */}
     
-
-    {/* <button onClick={()=>changeStatus("To Do")}>
-      <p>To Do</p>
-    </button>
-
-    <button onClick={()=>changeStatus("Done")}>
-      <p>Done</p>
-    </button>
-
-    <button onClick={()=>changeStatus("Trash")}>
-      <p>Trash</p>
-    </button> */}
-
-
-    <h3 className="mt-5">< MainContent activeStatus={activeStatus} changeStatus={changeStatus}/>
-      {/* {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"} */}
+    <h3 className="mt-5">{activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}
     </h3>
 
     {filteredTodos.map((item, _i)=> (

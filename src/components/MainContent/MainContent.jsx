@@ -36,7 +36,7 @@ export default function MainContent({activeStatus,  changeStatus}) {
         </div>
 
       </div>
-      {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}
+      {/* {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"} */}
       {/* <TODO /> */}
       
       {/* <div><DONE /></div> */}
