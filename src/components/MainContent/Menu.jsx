@@ -33,13 +33,14 @@ export default function Menu() {
 
     return (
         <>
-        <div className="menu__wrapper mt-2 ">
-            <div className="filteredMenu__wrapper d-flex justify-content-between">
+        <div className="menu__wrapper  ">
+            <div className="filteredMenu__wrapper">
                 {menu.map((item, index) => {
                     return <FilteredMenu key = {index} name = {item.name} bool={item.isActive} handleClick={handleClick} />
                 })}
             </div>
         </div>
+        <div></div>
         </>
     )
 }
