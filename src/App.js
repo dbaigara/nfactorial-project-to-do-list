@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import SingleToDo from "./components/SingleToDo";
 import {v4 as uuidv4} from "uuid"; 
 import FilteredMenu from "./components/MainContent/FilteredMenu";
+import Menu from "./components/MainContent/Menu"
 
 
 function App() {
@@ -13,10 +14,10 @@ function App() {
 
   const [activeStatus, setActiveStatus] = useState("To Do");
   const [todoList, setToDoList] = useState([
-    {id: uuidv4(), name: "write essay", status: "todo"},
-    {id: uuidv4(), name: "go to gym", status: "todo"},
-    {id: uuidv4(), name: "buy one way ticket", status: "done"},
-    {id: uuidv4(), name: "buy one way", status: "trash"},
+    {id: uuidv4(), name: "write essay", status: "To Do"},
+    {id: uuidv4(), name: "go to gym", status: "To Do"},
+    {id: uuidv4(), name: "buy one way ticket", status: "Done"},
+    {id: uuidv4(), name: "buy one way", status: "Trash"},
   ]);
 
 const [toDO, setToDo] = useState("");
@@ -26,7 +27,6 @@ const [footer, setFooter] = useState("");
 
 const changeStatus = (status) => {
   setActiveStatus(status);
-
 }
 
 const filteredTodos = todoList.filter((item)=> item.status === activeStatus);
@@ -34,7 +34,7 @@ const filteredTodos = todoList.filter((item)=> item.status === activeStatus);
 
 const changeStatusToTrash = (id)=> {
   const itemToTrash = todoList.find((item)=> item.id === id);
-  itemToTrash.status = "trash";
+  itemToTrash.status = "Trash";
   const newToDoListWithoutItem = todoList.filter((item) => item.id !== id);
   setToDoList([...newToDoListWithoutItem, itemToTrash]);
   // const newToDoList = todoList.filter((item) => {
@@ -86,21 +86,22 @@ const [isAddModalVisible, setIsAddModalVisible] = useState(false);
 {/* ------------------------------------- */}
     
 
-    <button onClick={()=>changeStatus("todo")}>
-      {/* onClick={()=>changeStatus(activeStatus === "todo" ? "done" : "todo")}> */}
+    {/* <button onClick={()=>changeStatus("To Do")}>
       <p>To Do</p>
     </button>
 
-    <button onClick={()=>changeStatus("done")}>
+    <button onClick={()=>changeStatus("Done")}>
       <p>Done</p>
     </button>
 
-    <button onClick={()=>changeStatus("trash")}>
+    <button onClick={()=>changeStatus("Trash")}>
       <p>Trash</p>
-    </button>
+    </button> */}
 
-    
-    <h3>{activeStatus === "todo" ? "To Do" : activeStatus === "done" ? "Done" : "Trash"}</h3>
+
+    <h3 className="mt-5">< MainContent activeStatus={activeStatus} changeStatus={changeStatus}/>
+      {/* {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"} */}
+    </h3>
 
     {filteredTodos.map((item, _i)=> (
       <SingleToDo 

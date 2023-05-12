@@ -3,7 +3,7 @@ import FilteredMenu from "./FilteredMenu";
 // import "./FilteredMenu.css";
 
 
-export default function Menu() {
+export default function Menu( {changeStatus}) {
     
     const [menu, setMenu] = useState([
         {
@@ -36,8 +36,9 @@ export default function Menu() {
         <div className="menu__wrapper  ">
             <div className="filteredMenu__wrapper">
                 {menu.map((item, index) => {
-                    return <FilteredMenu key = {index} name = {item.name} bool={item.isActive} handleClick={handleClick} />
+                    return <FilteredMenu key = {index} name = {item.name} bool={item.isActive} handleClick={handleClick} changeStatus={changeStatus}/>
                 })}
+                {/* {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"} */}
             </div>
         </div>
         <div></div>

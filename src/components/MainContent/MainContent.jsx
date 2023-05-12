@@ -9,7 +9,7 @@ import { PLUS } from "../../img";
 
 
 
-export default function MainContent() {
+export default function MainContent({activeStatus,  changeStatus}) {
 
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
 
@@ -19,7 +19,7 @@ export default function MainContent() {
       <div className="d-flex justify-content-between ">
 
         <div className="d-flex mt-2">
-          < Menu />
+          < Menu changeStatus={changeStatus}/>
         </div>
 
         <div className="">
@@ -36,6 +36,7 @@ export default function MainContent() {
         </div>
 
       </div>
+      {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}
       {/* <TODO /> */}
       
       {/* <div><DONE /></div> */}
