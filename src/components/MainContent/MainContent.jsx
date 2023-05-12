@@ -1,18 +1,12 @@
 import React from "react";
 import Menu from "./Menu";
-import TODO from "./Todo";
-import DONE from "./Done";
-import TRASH from "./Trash";
-
 import { useState } from "react";
-import { PLUS } from "../../img";
-
+import "./index.css"
 
 
 export default function MainContent({activeStatus,  changeStatus}) {
 
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
-
 
   return (
     <div className="container">
@@ -36,11 +30,7 @@ export default function MainContent({activeStatus,  changeStatus}) {
         </div>
 
       </div>
-      {/* {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"} */}
-      {/* <TODO /> */}
       
-      {/* <div><DONE /></div> */}
-      {/* <div><TRASH /></div> */}
     </div>
   );
 }

@@ -5,12 +5,8 @@ import MainContent from "./components/MainContent/MainContent";
 import Footer from "./components/Footer/Footer";
 import SingleToDo from "./components/SingleToDo";
 import {v4 as uuidv4} from "uuid"; 
-import FilteredMenu from "./components/MainContent/FilteredMenu";
-import Menu from "./components/MainContent/Menu"
-
 
 function App() {
-
 
   const [activeStatus, setActiveStatus] = useState("To Do");
   const [todoList, setToDoList] = useState([
@@ -19,11 +15,6 @@ function App() {
     {id: uuidv4(), name: "buy one way ticket", status: "Done"},
     {id: uuidv4(), name: "buy one way", status: "Trash"},
   ]);
-
-const [toDO, setToDo] = useState("");
-const [mainContent, setMainContent] = useState("");
-const [footer, setFooter] = useState("");
-
 
 const changeStatus = (status) => {
   setActiveStatus(status);
@@ -46,57 +37,25 @@ const changeStatusToTrash = (id)=> {
   // setToDoList(newToDoList)
 }
 
-const [menu, setMenu] = useState([
-  {
-      name: "To Do",
-      isActive: true,
-  },
-  {
-      name: "Done",
-      isActive: false,
-  },
-  {
-      name: "Trash",
-      isActive: false,
-  },
-]);
-const handleClick = (itemName) => {
-  const newMenu = menu.map((item)=>{
-      if(item.name === itemName){
-          item.isActive = true;
-      } else {
-          item.isActive = false;
-      }
-      return item;
-  })
-  setMenu(newMenu);
-}
-const [isAddModalVisible, setIsAddModalVisible] = useState(false);
-
   return (
-    <div className="container mt-5">
-      <div className="mb-5">
-        <HEADER />
-      </div>
-      <div className="mb-5 mt-5 pt-5">
-        <MainContent changeStatus={changeStatus}/>
-      </div>
-{/* ------------------------------------- */}
+        <div className="container mt-5">
+          <div className="mb-5">
+            <HEADER />
+          </div>
+          <div className="mb-5 mt-5 pt-5">
+            <MainContent changeStatus={changeStatus}/>
+          </div>
+        
+        <h3 className="mt-5"><p className="active-status"> {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}</p>
+        </h3>
 
-{/* ------------------------------------- */}
-    
-    <h3 className="mt-5">{activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}
-    </h3>
+        {filteredTodos.map((item, _i)=> (
+          <SingleToDo 
+            item={item} 
+            key={_i} changeStatusToTrash={changeStatusToTrash}
+          />
+        ))}
 
-    {filteredTodos.map((item, _i)=> (
-      <SingleToDo 
-        item={item} 
-        key={_i} changeStatusToTrash={changeStatusToTrash}
-      />
-    ))}
-
-  
-{/* ------------------------------------- */}
       <div className="pt-5">
         <Footer />
       </div>

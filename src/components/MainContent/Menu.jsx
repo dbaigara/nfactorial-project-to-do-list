@@ -1,7 +1,5 @@
 import { useState } from "react";
 import FilteredMenu from "./FilteredMenu";
-// import "./FilteredMenu.css";
-
 
 export default function Menu( {changeStatus}) {
     
@@ -38,7 +36,6 @@ export default function Menu( {changeStatus}) {
                 {menu.map((item, index) => {
                     return <FilteredMenu key = {index} name = {item.name} bool={item.isActive} handleClick={handleClick} changeStatus={changeStatus}/>
                 })}
-                {/* {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"} */}
             </div>
         </div>
         <div></div>
