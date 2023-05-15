@@ -17,6 +17,14 @@ body {
   background: #151517;
   opacity: 0.2;
 }
+.modal-logo{
+  width: 2.5px;
+  height: 10px;
+}
+.modal-button{
+  border: none;
+  background-color: whitesmoke;
+}
 .todo-list {
     background-color: white;
     margin: auto;

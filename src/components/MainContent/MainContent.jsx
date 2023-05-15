@@ -4,9 +4,16 @@ import { useState } from "react";
 import "./index.css"
 
 
-export default function MainContent({activeStatus,  changeStatus}) {
+export default function MainContent({ changeStatus, newTodoText, setNewTodoText, addToTodo, setIsAddModalVisible, isAddModalVisible}) {
 
-  const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+  // const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+
+  // const [newTodoText, setNewTodoText] = useState(""); 
+
+  // const addToTodo = ()=> {
+  //   console.log(newTodoText);
+  //   setIsAddModalVisible(false);
+  // }
 
   return (
     <div className="container">
@@ -23,8 +30,8 @@ export default function MainContent({activeStatus,  changeStatus}) {
             <div className="modal">
               <p className="modal-add-new-to-do">Add New To Do</p>
               {/* <AddNewTask /> */}
-              < textarea className="modal-textarea" defaultValue={"Your text"} />
-              <button className="modal-addbutton">Add</button>
+              < textarea onChange={(e)=>setNewTodoText(e.target.value) } className="modal-textarea" placeholder={"Your text"} />
+              <button onClick={() => addToTodo(newTodoText)} className="modal-addbutton">Add</button>
             </div>
           )}
         </div>

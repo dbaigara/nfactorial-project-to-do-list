@@ -9,6 +9,10 @@ import {v4 as uuidv4} from "uuid";
 function App() {
 
   const [activeStatus, setActiveStatus] = useState("To Do");
+  const [newTodoText, setNewTodoText] = useState(""); 
+  const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   const [todoList, setToDoList] = useState([
     {id: uuidv4(), name: "Write essay", status: "To Do"},
     {id: uuidv4(), name: "Go to gym", status: "To Do"},
@@ -17,8 +21,20 @@ function App() {
   ]);
 
   const changeStatus = (status) => {
+    // console.log("status changed 1")
+    setIsModalVisible(false);
     setActiveStatus(status);
   };
+  const addToTodo = (newTodoText)=> {
+    const newTask = {id: uuidv4(), name: newTodoText, status: "To Do"};
+    const newTodoList = [newTask, ...todoList];
+    setToDoList(newTodoList);
+    setIsAddModalVisible(false);
+  };
+  const removeForever = (id) => {
+    const filteredTasks = todoList.filter(item => item.id !== id);
+    setToDoList(filteredTasks);
+  }
 
   const filteredTodos = todoList.filter((item)=> item.status === activeStatus);
   // setToDoList(newToDoList);
@@ -43,7 +59,7 @@ function App() {
               <HEADER />
             </div>
             <div className="mb-5 mt-5 pt-5 todos">
-              <MainContent changeStatus={changeStatus}/>
+              <MainContent changeStatus={changeStatus} newTodoText={newTodoText} setNewTodoText={setNewTodoText} addToTodo={addToTodo} setIsAddModalVisible={setIsAddModalVisible} isAddModalVisible={isAddModalVisible}/>
            
               <h3 className="mt-5"><p className="active-status"> {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}</p>
               </h3>
@@ -53,6 +69,9 @@ function App() {
                   item={item} 
                   key={_i} 
                   changeStatusSingleTodo={changeStatusSingleTodo}
+                  removeForever={removeForever}
+                  isModalVisible={isModalVisible}
+                  setIsModalVisible={setIsModalVisible}
                 />
               ))}
             </div> 
