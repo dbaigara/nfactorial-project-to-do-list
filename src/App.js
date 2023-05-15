@@ -10,33 +10,32 @@ function App() {
 
   const [activeStatus, setActiveStatus] = useState("To Do");
   const [todoList, setToDoList] = useState([
-    {id: uuidv4(), name: "write essay", status: "To Do"},
-    {id: uuidv4(), name: "go to gym", status: "To Do"},
-    {id: uuidv4(), name: "buy one way ticket", status: "Done"},
-    {id: uuidv4(), name: "buy one way", status: "Trash"},
+    {id: uuidv4(), name: "Write essay", status: "To Do"},
+    {id: uuidv4(), name: "Go to gym", status: "To Do"},
+    {id: uuidv4(), name: "Buy one way ticket", status: "Done"},
+    {id: uuidv4(), name: "Buy one way", status: "Trash"},
   ]);
 
-const changeStatus = (status) => {
-  setActiveStatus(status);
-}
+  const changeStatus = (status) => {
+    setActiveStatus(status);
+  };
 
-const filteredTodos = todoList.filter((item)=> item.status === activeStatus);
-// setToDoList(newToDoList);
+  const filteredTodos = todoList.filter((item)=> item.status === activeStatus);
+  // setToDoList(newToDoList);
 
-const changeStatusSingleTodo = (id, changedStatus)=> {
-  const changedItem = todoList.find((item)=> item.id === id);
-  changedItem.status = changedStatus;
-  const newToDoListWithoutItem = todoList.filter((item) => item.id !== id);
-  setToDoList([...newToDoListWithoutItem, changedItem]);
-  // const newToDoList = todoList.filter((item) => {
-  //     if(item.id === id){
-  //         return {...item, status: "trash"};
-  //     }
-  //     return item;
-  // });
-  // setToDoList(newToDoList)
-}
-
+  const changeStatusSingleTodo = (id, changedStatus)=> {
+    const changedItem = todoList.find((item)=> item.id === id);
+    changedItem.status = changedStatus;
+    const newToDoListWithoutItem = todoList.filter((item) => item.id !== id);
+    setToDoList([...newToDoListWithoutItem, changedItem]);
+    // const newToDoList = todoList.filter((item) => {
+    //     if(item.id === id){
+    //         return {...item, status: "trash"};
+    //     }
+    //     return item;
+    // });
+    // setToDoList(newToDoList)
+  };
 
   return (
         <div className="container mt-5">
@@ -48,7 +47,7 @@ const changeStatusSingleTodo = (id, changedStatus)=> {
            
               <h3 className="mt-5"><p className="active-status"> {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}</p>
               </h3>
-
+              <div className="line mt-4 mb-4"></div>
               {filteredTodos.map((item, _i)=> (
                 <SingleToDo 
                   item={item} 

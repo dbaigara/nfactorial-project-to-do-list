@@ -6,7 +6,10 @@ export default function FilteredMenu(props){
 
     return (  
         <>
-            <button onClick={()=>{handleClick(name);changeStatus(name)} } className={bool ? "btn-menu btn-menu-active" : "btn-menu"}>
+            <button onClick={()=>{
+                handleClick(name);
+                changeStatus(name)} } 
+                className={bool ? "btn-menu btn-menu-active" : "btn-menu"}>
                 {name}
             </button>
             <p></p>

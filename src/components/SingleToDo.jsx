@@ -15,14 +15,14 @@ export default function SingleToDo({ item, changeStatusSingleTodo }){
 
     return (
             <>
-                <div className="d-flex">
+                <div className="d-flex mb-2">
                     <input 
                         type="checkbox" 
                         checked={item.status==="Done"} 
                         onChange={changeStatus
                         }
                     />
-                    <p style={{textDecoration: item.status === "Done" ? "line-through" : "none"}}> {" "} {item.name}</p>
+                    <p className="d-flex justify-content-center align-items-center m-0 mb-1" style={{textDecoration: item.status === "Done" ? "line-through" : "none"}}> {" "} {item.name}</p>
                 </div>
                 {item.status !== "Trash" 
                     ? <button onClick={()=>      changeStatusSingleTodo(item.id, "Trash")}>

@@ -38,7 +38,6 @@ export default function Menu( {changeStatus}) {
                 })}
             </div>
         </div>
-        <div></div>
         </>
     )
 }

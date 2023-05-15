@@ -12,6 +12,11 @@ body {
 .todos {
   height: 400px;
 }
+.line {
+  height: 2px;
+  background: #151517;
+  opacity: 0.2;
+}
 .todo-list {
     background-color: white;
     margin: auto;
