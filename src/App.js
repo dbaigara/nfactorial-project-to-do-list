@@ -23,11 +23,11 @@ const changeStatus = (status) => {
 const filteredTodos = todoList.filter((item)=> item.status === activeStatus);
 // setToDoList(newToDoList);
 
-const changeStatusToTrash = (id)=> {
-  const itemToTrash = todoList.find((item)=> item.id === id);
-  itemToTrash.status = "Trash";
+const changeStatusSingleTodo = (id, changedStatus)=> {
+  const changedItem = todoList.find((item)=> item.id === id);
+  changedItem.status = changedStatus;
   const newToDoListWithoutItem = todoList.filter((item) => item.id !== id);
-  setToDoList([...newToDoListWithoutItem, itemToTrash]);
+  setToDoList([...newToDoListWithoutItem, changedItem]);
   // const newToDoList = todoList.filter((item) => {
   //     if(item.id === id){
   //         return {...item, status: "trash"};
@@ -37,28 +37,30 @@ const changeStatusToTrash = (id)=> {
   // setToDoList(newToDoList)
 }
 
+
   return (
         <div className="container mt-5">
-          <div className="mb-5">
-            <HEADER />
-          </div>
-          <div className="mb-5 mt-5 pt-5">
-            <MainContent changeStatus={changeStatus}/>
-          </div>
-        
-        <h3 className="mt-5"><p className="active-status"> {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}</p>
-        </h3>
+            <div className="mb-5">
+              <HEADER />
+            </div>
+            <div className="mb-5 mt-5 pt-5 todos">
+              <MainContent changeStatus={changeStatus}/>
+           
+              <h3 className="mt-5"><p className="active-status"> {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}</p>
+              </h3>
 
-        {filteredTodos.map((item, _i)=> (
-          <SingleToDo 
-            item={item} 
-            key={_i} changeStatusToTrash={changeStatusToTrash}
-          />
-        ))}
-
-      <div className="pt-5">
-        <Footer />
-      </div>
+              {filteredTodos.map((item, _i)=> (
+                <SingleToDo 
+                  item={item} 
+                  key={_i} 
+                  changeStatusSingleTodo={changeStatusSingleTodo}
+                />
+              ))}
+            </div> 
+          
+            <div className="pt-5">
+              <Footer />
+            </div>
     </div>
   );
 }

@@ -9,6 +9,9 @@ body {
     height: 2px;
 }
 
+.todos {
+  height: 400px;
+}
 .todo-list {
     background-color: white;
     margin: auto;
