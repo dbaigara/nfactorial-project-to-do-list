@@ -72,6 +72,7 @@ function App() {
                   removeForever={removeForever}
                   isModalVisible={isModalVisible}
                   setIsModalVisible={setIsModalVisible}
+                  todoList={todoList}
                 />
               ))}
             </div> 

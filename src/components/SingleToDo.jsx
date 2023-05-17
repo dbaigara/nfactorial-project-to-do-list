@@ -3,7 +3,7 @@ import Modal  from "./Modal";
 import modalLogo from "../img/More.png"
 
 
-export default function SingleToDo({ item, changeStatusSingleTodo, removeForever, isModalVisible, setIsModalVisible }){
+export default function SingleToDo({ item, changeStatusSingleTodo, removeForever, isModalVisible, setIsModalVisible, todoList }){
 
     const changeTaskStatus = () => {
         // console.log("status changed 2")
@@ -19,6 +19,9 @@ export default function SingleToDo({ item, changeStatusSingleTodo, removeForever
     return (
             <>
                 <div className="d-flex mb-2">
+                    {todoList.map((todos) => {
+                        // console.log(todos);
+                    })}
                     <Modal item={item} removeForever={removeForever} changeStatusSingleTodo={changeStatusSingleTodo} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible}/>
                     
                     <input 
