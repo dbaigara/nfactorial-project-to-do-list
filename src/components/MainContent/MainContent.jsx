@@ -2,9 +2,10 @@ import React from "react";
 import Menu from "./Menu";
 import { useState } from "react";
 import "./index.css"
+import SingleToDo from "../SingleToDo";
 
 
-export default function MainContent({ changeStatus, newTodoText, setNewTodoText, addToTodo, setIsAddModalVisible, isAddModalVisible}) {
+export default function MainContent({ activeStatus, changeStatus, newTodoText, setNewTodoText, addToTodo, setIsAddModalVisible, isAddModalVisible , changeStatusSingleTodo, removeForever, isModalVisible, setIsModalVisible, todoList, setTodoList, filteredTodos }) {
 
   // const [isAddModalVisible, setIsAddModalVisible] = useState(false);
 
@@ -23,13 +24,12 @@ export default function MainContent({ changeStatus, newTodoText, setNewTodoText,
           < Menu changeStatus={changeStatus}/>
         </div>
 
-        <div className="">
+        <div className="addModalWindow">
           <button className="button" onClick={()=>setIsAddModalVisible(!isAddModalVisible)}>
             <p className="button-text">+</p></button>
           {isAddModalVisible && ( 
             <div className="modal">
               <p className="modal-add-new-to-do">Add New To Do</p>
-              {/* <AddNewTask /> */}
               < textarea onChange={(e)=>setNewTodoText(e.target.value) } className="modal-textarea" placeholder={"Your text"} />
               <button onClick={() => addToTodo(newTodoText)} className="modal-addbutton">Add</button>
             </div>
@@ -38,6 +38,34 @@ export default function MainContent({ changeStatus, newTodoText, setNewTodoText,
 
       </div>
       
+      {/* title */}
+      <h3 className="mt-5"><p className="active-status"> {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}</p>
+      </h3>
+
+      <div className="line mt-4 mb-4"></div>   
+        
+      {filteredTodos.map((item, _i)=> {
+        return <SingleToDo name={item.name}
+        item={item} 
+        key={_i} 
+        changeStatusSingleTodo={changeStatusSingleTodo}
+        removeForever={removeForever}
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+        todoList={todoList} setTodoList={setTodoList}
+      />
+      }
+      // (<SingleToDo name={item.name}
+      //             item={item} 
+      //             key={_i} 
+      //             changeStatusSingleTodo={changeStatusSingleTodo}
+      //             removeForever={removeForever}
+      //             isModalVisible={isModalVisible}
+      //             setIsModalVisible={setIsModalVisible}
+      //             todoList={todoList} setTodoList={setTodoList}
+      //           />
+      //         )
+      )}
     </div>
   );
 }

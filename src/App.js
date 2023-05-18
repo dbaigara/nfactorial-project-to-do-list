@@ -59,12 +59,12 @@ function App() {
               <HEADER />
             </div>
             <div className="mb-5 mt-5 pt-5 todos">
-              <MainContent changeStatus={changeStatus} newTodoText={newTodoText} setNewTodoText={setNewTodoText} addToTodo={addToTodo} setIsAddModalVisible={setIsAddModalVisible} isAddModalVisible={isAddModalVisible}/>
+              <MainContent activeStatus={activeStatus} changeStatus={changeStatus} newTodoText={newTodoText} setNewTodoText={setNewTodoText} addToTodo={addToTodo} setIsAddModalVisible={setIsAddModalVisible} isAddModalVisible={isAddModalVisible} filteredTodos={filteredTodos} changeStatusSingleTodo={changeStatusSingleTodo} removeForever={removeForever} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} todoList={todoList} setTodoList={setToDoList}/>
            
-              <h3 className="mt-5"><p className="active-status"> {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}</p>
-              </h3>
-              <div className="line mt-4 mb-4"></div>
-              {filteredTodos.map((item, _i)=> (
+              {/* <h3 className="mt-5"><p className="active-status"> {activeStatus === "To Do" ? "To Do" : activeStatus === "Done" ? "Done" : "Trash"}</p>
+              </h3> */}
+              {/* <div className="line mt-4 mb-4"></div> */}
+              {/* {filteredTodos.map((item, _i)=> (
                 <SingleToDo 
                   item={item} 
                   key={_i} 
@@ -74,7 +74,7 @@ function App() {
                   setIsModalVisible={setIsModalVisible}
                   todoList={todoList}
                 />
-              ))}
+              ))} */}
             </div> 
           
             <div className="pt-5">
