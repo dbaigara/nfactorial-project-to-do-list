@@ -2,13 +2,11 @@ body {
     font-family: 'Inter';
     background-color: whitesmoke;
 }
-
 .header {
     /* border-bottom: ; */
     width: 1280px;
     height: 2px;
 }
-
 .todos {
   height: 400px;
 }
@@ -16,14 +14,6 @@ body {
   height: 2px;
   background: #151517;
   opacity: 0.2;
-}
-.modal-logo{
-  width: 2.5px;
-  height: 10px;
-}
-.modal-button{
-  border: none;
-  background-color: whitesmoke;
 }
 .todo-list {
     background-color: white;
@@ -46,7 +36,6 @@ body {
         0 20px 1px -9px rgba(0,0,0,0.15);
     padding: 30px;
 }
-
 .todo-item {
     display: flex;
     justify-content: flex-start;
@@ -59,16 +48,13 @@ body {
     font-size: 15px;
     color: #333333;
 }
-
 input[type=checkbox] {
     margin-right: 10px;
     font-size: 30px;
 }
-
 input[type=checkbox]:focus {
     outline: 0;
 }
-
 /* .container-button {
     height: 500px;
     display: flex;
@@ -76,7 +62,7 @@ input[type=checkbox]:focus {
     justify-content: flex-end;
     margin-right: 150px;
   } */
-  
+ 
   /* .menu { */
     /* position: absolute; */
     /* top: 274px; */
@@ -96,14 +82,12 @@ input[type=checkbox]:focus {
     /* position: absolute; */
     /* left: 1308px; */
     /* top: 164px; */
-  }
-  
+  }  
   .button-text {
     margin: 0px;
     font-size: 45px;
     padding-bottom: 5px;
   }
-  
   .modal {
     background-color: #e4e6e7;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
@@ -120,43 +104,6 @@ input[type=checkbox]:focus {
     text-align: flex-start;
     align-items: flex-start;
   }
-  .modal-background-toTrash {
-    height: 48px;
-  }
-  .modal-background-inTrash {
-    height: 82px;
-  }
-  .modal-background {
-    /* position: absolute; */
-    width: 240px;
-    left: 56px;
-    /* top: 478px; */
-    background: #E4E6E7;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
-    border-radius: 12px;
-  }
-  .modal-text {
-    /* width: 200px; */
-    /* height: 24px; */
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-    color: #353535;
-  }
-
-  .trashLogo{
-    width: 10.89px;
-    height: 14px;
-  }
-
-  .modal-buttons{
-    background: #E4E6E7;
-    border: none;
-  }
-
   .modal-add-new-to-do {
     font-family: 'Inter';
     font-style: normal;
@@ -172,7 +119,6 @@ input[type=checkbox]:focus {
     border-radius: 8px;
     height: 120px;
   }
-  
   .modal-addbutton {
     background-color: black;
     width: 76px;
@@ -180,4 +126,52 @@ input[type=checkbox]:focus {
     color: white;
     border-radius: 20px;
     margin-top: 10px;
+  }
+  /*  */
+  .more{
+    width: 2.5px;
+    height: 10px;
+  }
+  .more-button{
+    border: none;
+    background-color: whitesmoke;
+  }
+  .more-background-toTrash {
+    height: 48px;
+  }
+  .more-background-inTrash {
+    height: 82px;
+  }
+  .more-background {
+    position: absolute;
+    width: 240px;
+    left: 56px;
+    top: 478px;
+    background: #E4E6E7;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+    border-radius: 12px;
+    border: none;
+  }
+  .more-text {
+    /* width: 200px; */
+    /* height: 24px; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    color: #353535;
+    margin-bottom: 0;
+  }
+  .trashLogo{
+    width: 10.89px;
+    height: 14px;
+    margin-top: 2px;
+  }
+  .more-buttons{
+    background: #E4E6E7;
+    border: none;
   }
